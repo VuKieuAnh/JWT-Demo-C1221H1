@@ -1,6 +1,7 @@
 package com.example.democ12jwt.controller;
 
 import com.example.democ12jwt.model.AppUser;
+import com.example.democ12jwt.model.DTO.ICountRole;
 import com.example.democ12jwt.model.DTO.JwtResponse;
 import com.example.democ12jwt.service.appuser.IAppUserService;
 import com.example.democ12jwt.service.jwt.JwtService;
@@ -40,8 +41,9 @@ public class AuthController {
     }
 
     @GetMapping("/hello")
-    public ResponseEntity<String> hello() {
-        return new ResponseEntity<>("Hello World", HttpStatus.OK);
+    public ResponseEntity<Iterable<ICountRole>> hello() {
+        Iterable<ICountRole> iCountRoles = userService.getRoleNumber();
+        return new ResponseEntity<>(iCountRoles, HttpStatus.OK);
     }
     @GetMapping("/admin")
     public ResponseEntity<String> admin() {

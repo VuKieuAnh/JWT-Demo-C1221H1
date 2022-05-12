@@ -1,6 +1,7 @@
 package com.example.democ12jwt.service.appuser;
 
 import com.example.democ12jwt.model.AppUser;
+import com.example.democ12jwt.model.DTO.ICountRole;
 import com.example.democ12jwt.model.DTO.UserPrinciple;
 import com.example.democ12jwt.repo.IAppUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,10 @@ public class AppUserService implements IAppUserService {
     @Override
     public AppUser findByName(String name) {
         return appUserRepo.findByName(name).get();
+    }
+
+    @Override
+    public Iterable<ICountRole> getRoleNumber() {
+        return appUserRepo.getRoleNumber();
     }
 }
